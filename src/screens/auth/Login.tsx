@@ -1,4 +1,5 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -9,6 +10,7 @@ import Feather from "react-native-vector-icons/Feather";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import FontAwesome from "react-native-vector-icons//FontAwesome";
 const Login = () => {
+  const navigation = useNavigation() as any;
   return (
     <View className="flex-1 px-5 items-center">
       {/**Left arrow Header*/}
@@ -25,7 +27,7 @@ const Login = () => {
         <View className="flex flex-col">
           <Text className="font-bold text-lg">Phone Number</Text>
           <View
-            className="flex flex-row items-center space-x-3 justify-start top-3 border-2 border-gray-400 rounded-xl p-1"
+            className="flex flex-row items-center space-x-3 justify-start top-3 border-2 border-gray-400 rounded-xl p-1 pl-2"
             style={{ width: hp(46) }}
           >
             <Feather name="phone" size={20} />
@@ -56,8 +58,9 @@ const Login = () => {
       </View>
       {/**Login btn */}
       <TouchableOpacity
+        onPress={() => navigation.navigate("Home")}
         style={{
-          backgroundColor: "aqua",
+          backgroundColor: "black",
           borderRadius: 30,
           width: hp(45),
           top: hp(15),
@@ -66,27 +69,34 @@ const Login = () => {
           alignItems: "center",
         }}
       >
-        <Text>Login</Text>
+        <Text className="text-white text-lg">Login</Text>
       </TouchableOpacity>
       <View className="top-44">
         <Text>Or login with</Text>
       </View>
       {/**auth logos */}
       <View className="flex flex-row space-x-14 top-56 ">
-        <View className="flex flex-row space-x-4 items-center justify-center p-5 w-36 rounded-full bg-white">
+        <View className="flex flex-row space-x-4 items-center justify-center p-5 w-40 rounded-full bg-white">
           <AntDesign size={24} name="google" />
           <Text className="text-lg">Google</Text>
         </View>
-        <View className="flex flex-row space-x-4  items-center justify-center p-5 w-36 bg-blue-700 rounded-full">
-          <FontAwesome size={24} name="facebook" color='white'/>
+        <View className="flex flex-row space-x-4  items-center justify-center p-5 w-40 bg-blue-700 rounded-full">
+          <FontAwesome size={24} name="facebook" color="white" />
           <Text className="text-lg text-white ">Facebook</Text>
         </View>
       </View>
 
       {/**Alternate details */}
-      <View style={{ top: hp(27)}}>
-        <Text>Don’t have an account?
-            <Text className="text-blue-500"> Register</Text>
+      <View style={{ top: hp(27) }}>
+        <Text>
+          Don’t have an account?
+          <Text
+            onPress={() => navigation.navigate("Register")}
+            className="text-blue-500"
+          >
+            {" "}
+            Register
+          </Text>
         </Text>
       </View>
     </View>
