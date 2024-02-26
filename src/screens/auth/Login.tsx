@@ -1,106 +1,86 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import Feather from "react-native-vector-icons/Feather";
-import EvilIcons from "react-native-vector-icons/EvilIcons";
-import FontAwesome from "react-native-vector-icons//FontAwesome";
+import { useNavigation } from "@react-navigation/native";
+import Button from "../../widgets/Button";
+
 const Login = () => {
   const navigation = useNavigation() as any;
+
   return (
-    <View className="flex-1 px-5 items-center">
-      {/**Left arrow Header*/}
-      <View className="top-20 right-20">
-        <AntDesign size={24} name="arrowleft" />
-        <View className="top-7 space-y-2">
-          <Text className="font-bold text-2xl">Welcome to Homelyn</Text>
-          <Text>Please login to your account</Text>
-        </View>
+    <View
+      style={{
+        marginTop: hp(5),
+      }}
+      className="flex-1 mx-4"
+    >
+      {/**title message */}
+      <View className="space-y-3">
+        <Text className="font-semibold text-2xl">Welcome to Homelyn</Text>
+
+        <Text className="text-[#A7AEC1]">Please Login into your account</Text>
       </View>
 
-      {/**form input */}
-      <View className="mt-40">
-        <View className="flex flex-col">
-          <Text className="font-bold text-lg">Phone Number</Text>
-          <View
-            className="flex flex-row items-center space-x-3 justify-start top-3 border-2 border-gray-400 rounded-xl p-1 pl-2"
-            style={{ width: hp(46) }}
-          >
-            <Feather name="phone" size={20} />
+      {/**Details Input area  */}
+      <View className="space-y-5 w-full h-full" style={{ marginTop: hp(10) }}>
+        <View className="space-y-4">
+          {/**Phone Details  */}
+          <Text className="font-bold text-base">Phone Number</Text>
+
+          <View>
             <TextInput
-              className="py-3"
-              placeholder="Enter your number"
-              style={{ width: hp(40) }}
+              className="bg-white border-1 p-3 rounded-2xl"
+              placeholder="Enter your phone number"
             />
           </View>
         </View>
-        <View className="flex flex-col top-8">
-          <Text className="font-bold text-lg">Password</Text>
-          <View
-            className="flex flex-row items-center space-x-3 justify-start top-3 border-2 border-gray-400 rounded-xl p-1"
-            style={{ width: hp(46) }}
-          >
-            <EvilIcons name="lock" size={35} />
+
+        <View className="space-y-4">
+          {/**Phone Details  */}
+          <Text className="font-bold text-base">Password </Text>
+
+          <View>
             <TextInput
-              className="py-3 "
-              placeholder="Enter your Password"
-              style={{ width: hp(40) }}
+              className="bg-white border-1 p-3 rounded-2xl"
+              placeholder="Enter your phone number"
             />
           </View>
-          <View className="top-6 flex-row justify-end">
-            <Text className="text-[blue]">forgot Password?</Text>
-          </View>
         </View>
-      </View>
-      {/**Login btn */}
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Home")}
-        style={{
-          backgroundColor: "black",
-          borderRadius: 30,
-          width: hp(45),
-          top: hp(15),
-          height: hp(7),
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Text className="text-white text-lg">Login</Text>
-      </TouchableOpacity>
-      <View className="top-44">
-        <Text>Or login with</Text>
-      </View>
-      {/**auth logos */}
-      <View className="flex flex-row space-x-14 top-56 ">
-        <View className="flex flex-row space-x-4 items-center justify-center p-5 w-40 rounded-full bg-white">
-          <AntDesign size={24} name="google" />
-          <Text className="text-lg">Google</Text>
-        </View>
-        <View className="flex flex-row space-x-4  items-center justify-center p-5 w-40 bg-blue-700 rounded-full">
-          <FontAwesome size={24} name="facebook" color="white" />
-          <Text className="text-lg text-white ">Facebook</Text>
-        </View>
-      </View>
 
-      {/**Alternate details */}
-      <View style={{ top: hp(27) }}>
-        <Text>
-          Don’t have an account?
-          <Text
-            onPress={() => navigation.navigate("Register")}
-            className="text-blue-500"
-          >
-            {" "}
-            Register
+        <View className="flex items-end">
+          <Text className="text-blue-400">Forgotten Password? </Text>
+        </View>
+
+        {/**Login Button */}
+        <View
+          style={{ paddingTop: hp(7) }}
+          className="flex justify-center items-center"
+        >
+          <Button name="Login" screenName="Home" />
+        </View>
+        
+        <View style={{ top: hp(4) }}>
+          <Text>
+            Don't have an account?
+            <Text
+              onPress={() => navigation.navigate("Register")}
+              className="text-blue-600"
+            >
+              {" "}
+              Sign Up
+            </Text>
           </Text>
-        </Text>
+        </View>
       </View>
     </View>
   );
 };
-
 export default Login;

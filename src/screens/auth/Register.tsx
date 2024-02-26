@@ -8,74 +8,81 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import React from "react";
+import Button from "../../widgets/Button";
+import { useNavigation } from "@react-navigation/native";
 
 const Register = () => {
+  const navigation = useNavigation();
   return (
-    <View className="flex-1 items-start mt-16 p-5">
+    <View style={{ marginTop: hp(5) }} className="flex-1 mx-4">
       {/**Header with left arrow*/}
-      <View className="">
-        <AntDesign size={24} name="arrowleft" />
-        <View className="top-7 space-y-2">
-          <Text className="font-bold text-2xl">Welcome to Homelyn</Text>
-          <Text>Let's create your account first</Text>
-        </View>
+      <View className="space-y-3">
+        <Text className="font-semibold text-2xl">Welcome to Homelyn</Text>
+
+        <Text className="text-lg text-[#A7AEC1]">
+          Let's create your account first
+        </Text>
       </View>
+
       {/**Form */}
-      <View className="top-20 flex-col space-y-10">
-        <View>
-          <Text className="font-bold text-lg">Full Name</Text>
-          <View
-            style={{ width: hp(46), borderRadius: hp(2) }}
-            className="flex-row space-x-3 top-6 border-2 border-gray-400 p-4"
-          >
+      <View className="space-y-5 w-full h-full " style={{ marginTop: hp(10) }}>
+        <View className="space-y-4">
+          {/**Name Details  */}
+          <Text className="text-base font-bold">Full Name</Text>
+
+          <View className=" flex flex-row space-x-3 items-center">
             <FontAwesome name="user-o" size={24} color="black" />
-            <TextInput placeholder="Enter your username" />
+            <TextInput
+              className="bg-white border-1 p-3 rounded-2xl"
+              placeholder="Enter your full name"
+            />
           </View>
         </View>
 
-        <View className="">
-          <Text className="font-bold text-lg">Phone number</Text>
-          <View
-            style={{ width: hp(46), borderRadius: hp(2) }}
-            className="flex-row space-x-3 top-6 border-2 border-gray-400 p-4"
-          >
+        <View className="space-y-4">
+          {/**Phone Details  */}
+          <Text className="text-base font-bold">Phone Number</Text>
+
+          <View className=" flex flex-row space-x-3 items-center">
             <Feather name="phone" size={24} color="black" />
-            <TextInput placeholder="Enter your Phone number" />
+            <TextInput
+              className="bg-white border-1 p-3 rounded-2xl"
+              placeholder="Enter your number"
+            ></TextInput>
           </View>
         </View>
 
-        <View className="">
-          <Text className="font-bold text-lg">Password</Text>
-          <View
-            style={{ width: hp(46), borderRadius: hp(2) }}
-            className="flex-row space-x-3 top-6 border-2 border-gray-400 p-4"
-          >
+        <View className="space-y-4">
+          {/**Password Details  */}
+          <Text className="text-base font-bold">Password</Text>
+
+          <View className=" flex flex-row space-x-3 items-center">
             <Feather name="lock" size={24} color="black" />
-            <TextInput placeholder="Enter your password" />
+            <TextInput
+              className="bg-white border-1 p-3 rounded-2xl"
+              placeholder="choose a password"
+            />
           </View>
         </View>
-      </View>
 
-      {/**Agree and continue btn */}
-      <View className="top-52 items-center justify-center space-y-6">
-        <TouchableOpacity
-          style={{
-            width: hp(36),
-            backgroundColor: "black",
-            borderRadius: hp(2),
-            alignItems: "center",
-            justifyContent: "center",
-            padding: 23,
-            left: 45,
-          }}
+        {/**Agree and continue btn */}
+
+        <View
+          className="flex justify-center items-center"
+          style={{ padding: hp(7) }}
         >
-          <Text className="text-white text-lg">Agree and Continue</Text>
-        </TouchableOpacity>
-        {/**Footer */}
-        <View className="left-10">
+          <Button name="Register" screenName="Home" />
+        </View>
+
+        <View>
           <Text>
             Have an account?
-            <Text className="text-blue-600"> Login</Text>
+            <Text
+              onPress={() => navigation.navigate("Login")}
+              className="text-blue-800"
+            >
+              Login
+            </Text>
           </Text>
         </View>
       </View>
