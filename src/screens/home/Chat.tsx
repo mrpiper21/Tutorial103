@@ -6,15 +6,18 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import SmCard from "../../components/cards/SmCard";
+import { getDimension } from "../../helpers/globalHelpers";
 
 const Chat = () => {
+  const { width } = getDimension();
+
   return (
     <View className="flex">
       {/**User Header */}
       <View>
         <View className="mt-12 flex flex-row items-center space-x-4 mx-4">
           <View
-            style={{ width: hp(6), borderRadius: hp(17) }}
+            style={{ width: width * 0.11, borderRadius: width * 0.08 }}
             className="flex p-3 bg-white justify-center items-center"
           >
             <Ionicons name="arrow-back" size={24} color="black" />

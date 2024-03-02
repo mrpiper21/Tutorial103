@@ -1,17 +1,16 @@
 import { View, Text, TextInput, ScrollView, Image } from "react-native";
 import React from "react";
 import { Ionicons, MaterialIcons, Octicons } from "@expo/vector-icons";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
 import { useNavigation } from "@react-navigation/native";
 import BgCard from "../../components/cards/BgCard";
 import SmCard from "../../components/cards/SmCard";
 import Searchbar from "../../components/search";
+import { getDimension, getPlatform } from "../../helpers/globalHelpers";
+import { useUser } from "../../context/userContext";
 
 const Home = () => {
-  const navigation = useNavigation() as any;
+  const user = useUser();
+
   return (
     <View className="flex-1 mt-12 mx-2">
       {/**Location and notifiaction  */}
@@ -26,7 +25,7 @@ const Home = () => {
 
       {/** Header */}
       <View className="px-6 top-7">
-        <Text>Hello, Kevin!👋</Text>
+        <Text>Hello, {user?.user.name}👋</Text>
         <Text className="font-bold text-3xl">Let's find best hotel</Text>
       </View>
       {/**Search bar */}
