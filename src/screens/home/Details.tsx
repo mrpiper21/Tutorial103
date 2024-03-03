@@ -1,6 +1,7 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import { getDimension } from "../../helpers/globalHelpers";
 import {
   AntDesign,
   EvilIcons,
@@ -16,6 +17,8 @@ import {
 import Usercard from "../../components/cards/Usercard";
 
 const Details = () => {
+  const { width, height } = getDimension();
+
   const navigation = useNavigation() as any;
   return (
     <View className="flex-1">
@@ -166,12 +169,12 @@ const Details = () => {
       {/**Btns */}
       <View className="flex flex-row items-center justify-center p-2 bg-white space-x-3">
         <View>
-          <Ionicons name="chatbubble-sharp" size={60} color="navy" />
+          <Ionicons name="chatbubble-sharp" size={60} color="teal" />
         </View>
         <View>
           <TouchableOpacity
-            className="bg-blue-600 p-5 rounded-full items-center justify-center"
-            style={{ width: hp(35) }}
+            className="bg-blue-600 rounded-full items-center justify-center"
+            style={{ width: width * 0.7, padding: width * 0.03 }}
           >
             <Text className="text-white font-semibold text-lg">Book now</Text>
           </TouchableOpacity>

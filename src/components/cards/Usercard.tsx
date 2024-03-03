@@ -27,8 +27,8 @@ const Usercard = () => {
             borderRadius: width * 0.19,
           }}
         />
-        <View className="space-y-3">
-          <View className="flex-row  items-center space-x-48">
+        <View className="space-y-1">
+          <View className="flex-row flex-0 justify-between items-center">
             <Text className="text-xl font-semibold">Post Malone</Text>
             <View className="flex flex-col">
               <View className="flex flex-row space-x-2">

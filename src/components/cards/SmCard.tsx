@@ -15,8 +15,8 @@ const SmCard = () => {
         <View className="">
           <Text>Nearby Hotel</Text>
           <View
-            className="bg-white p-2 flex flex-row space-x-3 mt-5"
-            style={{ borderRadius: hp(2) }}
+            className="bg-white p-2 flex-1 flex-row items-center space-x-3 mt-5"
+            style={{ borderRadius: width * 0.05 }}
           >
             <Image
               source={{
@@ -28,7 +28,7 @@ const SmCard = () => {
                 borderRadius: width * 0.04,
               }}
             />
-            <View className="space-y-3">
+            <View className="space-y-1">
               <Text className="text-lg font-semibold">
                 Hyatt Washington Hotel
               </Text>
@@ -50,7 +50,7 @@ const SmCard = () => {
             </View>
           </View>
           <View
-            className="bg-white p-2 flex flex-row space-x-3 mt-2"
+            className="bg-white p-2 flex flex-row items-center space-x-3 mt-5"
             style={{ borderRadius: width * 0.04 }}
           >
             <Image
@@ -63,7 +63,7 @@ const SmCard = () => {
                 borderRadius: width * 0.04,
               }}
             />
-            <View className="space-y-3">
+            <View className="space-y-1">
               <Text className="text-lg font-semibold">
                 The Confidiante Hotel
               </Text>
