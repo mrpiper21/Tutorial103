@@ -32,13 +32,13 @@ const Details = () => {
             style={{ width: hp(55), height: hp(30) }}
           />
           <View
-            className=" flex flex-row justify-center w-full absolute space-x-40 items-center"
-            style={{ top: hp(6) }}
+            className=" flex flex-row w-full absolute justify-between items-center px-2"
+            style={{ top: height * 0.04 }}
           >
-            <EvilIcons name="arrow-left" size={40} color="white" />
+            <EvilIcons name="arrow-left" size={width / 13} color="white" />
             <View className="flex flex-row space-x-12">
-              <Feather name="arrow-up-circle" size={40} color="white" />
-              <AntDesign name="heart" size={40} color="white" />
+              <Feather name="arrow-up-circle" size={width / 13} color="white" />
+              <AntDesign name="heart" size={width / 13} color="white" />
             </View>
           </View>
         </View>
@@ -49,7 +49,7 @@ const Details = () => {
             <Text className="font-semibold text-xl">Mendiata Hotel</Text>
             <View className="flex flex-row items-center space-x-6">
               <View className="flex flex-row items-center">
-                <Ionicons name="location" size={24} color="blue" />
+                <Ionicons name="location" size={width / 13} color="blue" />
                 <Text>Achimota Golf park</Text>
               </View>
               <View className="flex flex-row space-x-2">
@@ -77,7 +77,7 @@ const Details = () => {
 
               {/**Icons  */}
               <View
-                className="flex flex-row space-x-20 items-center justify-center"
+                className="flex flex-row items-center justify-between"
                 style={{ marginTop: hp(2) }}
               >
                 <View>
@@ -122,20 +122,20 @@ const Details = () => {
 
                 <View>
                   <View
-                    className="justify-center bg-white p-2"
-                    style={{ borderRadius: hp(2) }}
+                    className="justify-center items-start bg-white p-2"
+                    style={{ borderRadius: hp(2), width: width * 1 }}
                   >
                     <Image
                       source={{
                         uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Topographic_map_example.png/310px-Topographic_map_example.png",
                       }}
                       style={{
-                        width: hp(46.5),
-                        height: hp(15),
+                        width: width * 0.9,
+                        height: height * 0.18,
                         borderRadius: hp(2),
                       }}
                     />
-                    <View className="flex flex-row space-x-3 mt-2 items-center">
+                    <View className="flex flex-row space-x-3 mt-2 items-start">
                       <Ionicons name="location-sharp" size={24} color="blue" />
                       <Text>
                         Achimota Golf club st204. RD christian village
