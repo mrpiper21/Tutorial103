@@ -1,14 +1,5 @@
 import { Platform, Dimensions } from "react-native";
-
-export const getPlatform = () => {
-  const platform = Platform.select({
-    ios: "ios",
-    android: "android",
-    web: "web",
-  });
-
-  return platform;
-};
+// import { getPlatform } from "./globalHelpers";
 
 export const trancatedString = (word: string) => {
   if (word.length > 20) {
@@ -24,3 +15,17 @@ export const getDimension = () => {
     height,
   };
 };
+
+class GlobaHelpers {
+  getPlatform = () => {
+    const platform = Platform.select({
+      ios: "ios",
+      android: "android",
+      web: "web",
+    });
+
+    return platform
+  };
+}
+
+export default GlobaHelpers;

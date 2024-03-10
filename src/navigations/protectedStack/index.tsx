@@ -1,30 +1,80 @@
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "../../screens/home/Home";
-import Details from "../../screens/home/Details";
-import Message from "../../screens/home/Message";
-import Chat from "../../screens/home/Chat";
-import splash from "../../screens/loaders/splash";
+import { AntDesign } from "@expo/vector-icons";
 
-const protectedStack = createNativeStackNavigator();
+import { View, Text, TouchableOpacity } from "react-native";
+import HomeNavigation from "./home";
 
-const ProtectedNavigation = () => {
+// function MyTabBar({ state, descriptors, navigation }) {
+//   return (
+//     <View style={{ flexDirection: "row" }}>
+//       {state.routes.map((route, index) => {
+//         const { options } = descriptors[route.key];
+//         const label =
+//           options.tabBarLabel !== undefined
+//             ? options.tabBarLabel
+//             : options.title !== undefined
+//             ? options.title
+//             : route.name;
+
+//         const isFocused = state.index === index;
+
+//         const onPress = () => {
+//           const event = navigation.emit({
+//             type: "tabPress",
+//             target: route.key,
+//             canPreventDefault: true,
+//           });
+
+//           if (!isFocused && !event.defaultPrevented) {
+//             navigation.navigate(route.name, route.params);
+//           }
+//         };
+
+//         const onLongPress = () => {
+//           navigation.emit({
+//             type: "tabLongPress",
+//             target: route.key,
+//           });
+//         };
+
+//         return (
+//           <TouchableOpacity
+//             accessibilityRole="button"
+//             accessibilityState={isFocused ? { selected: true } : {}}
+//             accessibilityLabel={options.tabBarAccessibilityLabel}
+//             testID={options.tabBarTestID}
+//             onPress={onPress}
+//             onLongPress={onLongPress}
+//             style={{ flex: 1 }}
+//           >
+//             <Text style={{ color: isFocused ? "#673ab7" : "#222" }}>
+//               {label}
+//             </Text>
+//           </TouchableOpacity>
+//         );
+//       })}
+//     </View>
+//   );
+// }
+
+const Tab = createBottomTabNavigator();
+
+const ProtectedBottomTab = () => {
   return (
     <NavigationContainer>
-      <protectedStack.Navigator
-        initialRouteName="Splash"
+      <Tab.Navigator
         screenOptions={{
+          // headerTitle: "Hello",
           headerShown: false,
+          tabBarStyle: { position: "absolute", backgroundColor: "white" },
+          tabBarIcon: () => <AntDesign name="home" size={28} color="black" />,
         }}
       >
-        <protectedStack.Screen name="Home" component={Home} />
-        <protectedStack.Screen name="Splash" component={splash} />
-        <protectedStack.Screen name="Details" component={Details} />
-        <protectedStack.Screen name="Message" component={Message} />
-        <protectedStack.Screen name="Chat" component={Chat} />
-      </protectedStack.Navigator>
+        <Tab.Screen name="home" component={HomeNavigation} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
-export default ProtectedNavigation;
+export default ProtectedBottomTab;

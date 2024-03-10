@@ -1,4 +1,11 @@
-import { View, Text, TextInput, ScrollView, Image } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  ScrollView,
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import {
   Ionicons,
@@ -7,15 +14,20 @@ import {
   Octicons,
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import BgCard from "../../components/cards/BgCard";
-import SmCard from "../../components/cards/SmCard";
+import BgCard from "../../widgets/cards/BigCard";
+import SmCard from "../../widgets/cards/SmallCard";
 import Searchbar from "../../components/search";
-import { getDimension, getPlatform } from "../../helpers/globalHelpers";
+import { getDimension } from "../../helpers/globalHelpers";
 import { useUser } from "../../context/userContext";
 
 const Home = () => {
+  const navigation = useNavigation() as any;
   const user = useUser();
   const { width, height } = getDimension();
+  const image1 =
+    "https://www.luxuryhotelawards.com/wp-content/uploads/sites/8/2023/03/Thanes-Piamnamai-251-scaled.jpg";
+  const image2 =
+    "https://www.wyndhamhotels.com/content/dam/creative-images/apac/text/3x2/Peninsula%20Excelsior%20Singapore,%20a%20Wyndham%20Hotel.jpg?downsize=700:*";
 
   return (
     <View className="flex-1 mt-10 mx-2">
@@ -49,22 +61,31 @@ const Home = () => {
               showsHorizontalScrollIndicator={false}
               horizontal={true}
             >
-              <BgCard />
+              <View className="flex flex-row space-x-4">
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Details")}
+                >
+                  <BgCard imageUrl={image2} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Details")}
+                >
+                  <BgCard imageUrl={image1} />
+                </TouchableOpacity>
+              </View>
             </ScrollView>
             {/**Recommended Hotels */}
-            <SmCard />
-            <SmCard />
-            <SmCard />
-            <SmCard />
-            <SmCard />
+            <View className="mb-[100px]">
+              <SmCard />
+              <SmCard />
+              <SmCard />
+              <SmCard />
+              <SmCard />
+            </View>
           </View>
         </View>
         {/**Recommendation View */}
       </ScrollView>
-      <View className=" flex flex-row items-center justify-between px-3">
-        <AntDesign name="home" size={40} color="black" />
-        <AntDesign name="setting" size={40} color="black" />
-      </View>
     </View>
   );
 };

@@ -5,7 +5,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import SmCard from "../../components/cards/SmCard";
+import SmCard from "../../widgets/cards/SmallCard";
 import { getDimension } from "../../helpers/globalHelpers";
 
 const Chat = () => {

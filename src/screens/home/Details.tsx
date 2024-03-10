@@ -14,7 +14,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import Usercard from "../../components/cards/Usercard";
+import Usercard from "../../widgets/cards/Usercard";
 
 const Details = () => {
   const { width, height } = getDimension();

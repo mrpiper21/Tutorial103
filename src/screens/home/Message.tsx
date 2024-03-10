@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
-import Usercard from "../../components/cards/Usercard";
+import Usercard from "../../widgets/cards/Usercard";
 import Searchbar from "../../components/search";
 
 const Message = () => {
