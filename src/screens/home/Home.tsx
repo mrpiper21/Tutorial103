@@ -55,7 +55,7 @@ const Home = () => {
             <Text className="text-lg font-bold">Recomened Hotel</Text>
             <Text>See All</Text>
           </View>
-          <View className="">
+          <View className=" mt-10">
             {/**Card */}
             <ScrollView
               showsHorizontalScrollIndicator={false}
@@ -75,7 +75,7 @@ const Home = () => {
               </View>
             </ScrollView>
             {/**Recommended Hotels */}
-            <View className="mb-[100px]">
+            <View className="mb-[150px]">
               <SmCard />
               <SmCard />
               <SmCard />

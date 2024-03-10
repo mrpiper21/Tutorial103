@@ -4,6 +4,8 @@ import { AntDesign } from "@expo/vector-icons";
 
 import { View, Text, TouchableOpacity } from "react-native";
 import HomeNavigation from "./home";
+import MessageNavigation from "./message";
+import ProfileNavigation from "./profile";
 
 // function MyTabBar({ state, descriptors, navigation }) {
 //   return (
@@ -68,10 +70,40 @@ const ProtectedBottomTab = () => {
           // headerTitle: "Hello",
           headerShown: false,
           tabBarStyle: { position: "absolute", backgroundColor: "white" },
-          tabBarIcon: () => <AntDesign name="home" size={28} color="black" />,
         }}
       >
-        <Tab.Screen name="home" component={HomeNavigation} />
+        <Tab.Screen
+          options={{
+            tabBarIcon: () => <AntDesign name="home" size={28} color="black" />,
+          }}
+          name="home"
+          component={HomeNavigation}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: () => (
+              <AntDesign name="search1" size={28} color="black" />
+            ),
+          }}
+          name="search"
+          component={HomeNavigation}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: () => (
+              <AntDesign name="message1" size={24} color="black" />
+            ),
+          }}
+          name="messages"
+          component={MessageNavigation}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: () => <AntDesign name="user" size={24} color="black" />,
+          }}
+          name="profile"
+          component={ProfileNavigation}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
